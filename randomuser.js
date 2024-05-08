@@ -13,7 +13,7 @@ document.querySelector("form").addEventListener(
 
                 const userList = data.results;
                 const markup = userList.map(user => `
-                    <div class="user">
+                    <div class="user m-2">
                         <img src="${user.picture.large}" alt="Avatar of ${user.name.first} ${user.name.last}">
                         <div>${user.name.first} ${user.name.last}</div>
                         <div>${user.email}</div>

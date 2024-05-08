@@ -1,0 +1,21 @@
+form {
+    width: 400px;
+    margin: 50px auto;
+}
+
+.users {
+    width: 80%;
+    border: 1px solid black;
+    margin: 0 auto;
+    min-height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.625rem;
+}
