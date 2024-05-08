@@ -3,10 +3,13 @@ document.querySelector("form").addEventListener(
     (event) => {
         event.preventDefault();
 
-        fetch("https://randomuser.me/api/?results=5&nat=US")
+        const results = document.querySelector("[name=results]").value;
+        const nat = document.querySelector("[name=nat]").value;
+
+
+        fetch(`https://randomuser.me/api/?results=${results}&nat=${nat}`)
             .then(result => result.json())
             .then(data => {
-                document.querySelector(".js-users").innerHTML = JSON.stringify(data);
 
                 const userList = data.results;
                 const markup = userList.map(user => `
@@ -14,6 +17,7 @@ document.querySelector("form").addEventListener(
                         <img src="${user.picture.large}" alt="Avatar of ${user.name.first} ${user.name.last}">
                         <div>${user.name.first} ${user.name.last}</div>
                         <div>${user.email}</div>
+                        <div>${user.location.city}, ${user.nat}</div>
                     </div>
                 `).join("");
                 document.querySelector(".js-users").innerHTML = markup;
